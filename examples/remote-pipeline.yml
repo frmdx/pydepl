@@ -1,0 +1,25 @@
+version: 1
+context:
+    my-host: localhost
+    my-remote: neo
+    my-remote2: morpheus
+    my-var: world
+    destdir: $HOME
+task_list:
+    - task:
+        task_name: task1
+        host: "{my-remote}"
+        type: shellout
+        out_var: srv-1-var
+        cmd: "uname -sr"
+    - task:
+        task_name: task2
+        host: "{my-remote2}"
+        type: shellout
+        out_var: srv-2-var
+        cmd: "uname -sr"
+    - task:
+        task_name: task3
+        host: "{my-host}"
+        type: shell
+        cmd: "echo my-var: {my-var}, srv1: {srv-1-var}, srv2: {srv-2-var}"

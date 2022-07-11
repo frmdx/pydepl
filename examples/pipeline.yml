@@ -1,0 +1,12 @@
+version: 1
+context:
+    my-host: localhost
+    my-remote: remote_srv_name
+    my-var: world
+    destdir: $HOME
+task_list:
+    - task:
+        task_name: task2
+        host: "{my-host}"
+        type: shell
+        cmd: "echo hello {my-var}"
